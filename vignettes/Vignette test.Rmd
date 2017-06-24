@@ -1,0 +1,12 @@
+---
+title: "Vignette Example"
+author: "Francesco Del Zompo"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Here you are supposed to explain how to use your package
