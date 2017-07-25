@@ -9,8 +9,10 @@
 #' If the filename doesn't exists it returs an error.
 #'
 #' @examples
+#' #' \dontrun{
 #' fars_read('accident_2015.csv.bz2')
 #' fars_read(make_filename(2015))
+#'}
 #'
 #' @importFrom dplyr tbl_df
 #' @importFrom readr read_csv
@@ -35,8 +37,10 @@ fars_read <- function(filename) {
 #' It will return an error if input is incorrect (ie '2015c')
 #'
 #' @examples
+#' #' \dontrun{
 #' make_filename(2015)
 #' make_filename('2015')
+#'}
 #'
 #' @export
 make_filename <- function(year) {
@@ -54,8 +58,10 @@ make_filename <- function(year) {
 #' If the filename with the reference year doesn't exists it returs a warning and a NULL element in the list.
 #'
 #' @examples
+#' \dontrun{
 #' fars_read_years(c(2014,2015))
 #' fars_read_years(c('2013','2014'))
+#' }
 #'
 #' @importFrom dplyr select
 #' @importFrom dplyr mutate
@@ -88,8 +94,10 @@ fars_read_years <- function(years) {
 #' It will return a warning if the years are not presented in the dataset.
 #'
 #' @examples
+#' \dontrun{
 #' fars_summarize_years(c(2014,2015))
 #' fars_summarize_years(c('2013','2014'))
+#'}
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr group_by
@@ -118,8 +126,10 @@ fars_summarize_years <- function(years) {
 #' @return returns map with the accident as points.
 #'
 #' @examples
-#' fars_map_state(1,2015)
+#' \dontrun{
+#' fars_map_state(1,2014)
 #' fars_map_state('20','2014')
+#'}
 #'
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr group_by
@@ -151,3 +161,5 @@ fars_map_state <- function(state.num, year) {
     graphics::points(LONGITUD, LATITUDE, pch = 46)
   })
 }
+
+

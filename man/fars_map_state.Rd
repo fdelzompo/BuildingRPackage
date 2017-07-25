@@ -26,5 +26,4 @@ If there are no accidents (hopefully) it returns a message 'No accident to plot'
 \examples{
 fars_map_state(1,2015)
 fars_map_state('20','2014')
-
 }
