@@ -21,7 +21,9 @@ A function that returns the filename for the FARS database given a certain year.
 No need to be exported as it's mainly used inside the package
 }
 \examples{
+\dontrun{
 make_filename(2015)
 make_filename('2015')
+}
 
 }

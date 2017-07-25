@@ -20,7 +20,9 @@ fars_summarize_years
 A funtion that summarise how many accident per year and month are registered in the FARS dataset.
 }
 \examples{
+\dontrun{
 fars_summarize_years(c(2014,2015))
 fars_summarize_years(c('2013','2014'))
+}
 
 }

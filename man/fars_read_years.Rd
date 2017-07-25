@@ -20,7 +20,9 @@ fars_read_years
 A funtion that create a list of dataset combining the  \code{make_filename}  \code{fars_read} functions.
 }
 \examples{
+\dontrun{
 fars_read_years(c(2014,2015))
 fars_read_years(c('2013','2014'))
+}
 
 }

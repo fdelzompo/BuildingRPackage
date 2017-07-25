@@ -22,7 +22,9 @@ A funtion that checks if the file exists and returns the content as tbl_df.
 No need to be exported as it's mainly used inside the package
 }
 \examples{
+\dontrun{
 fars_read('accident_2015.csv.bz2')
 fars_read(make_filename(2015))
+}
 
 }
