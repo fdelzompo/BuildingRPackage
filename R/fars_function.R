@@ -15,6 +15,7 @@
 #' @importFrom dplyr tbl_df
 #' @importFrom readr read_csv
 #'
+#' @export
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
@@ -37,6 +38,7 @@ fars_read <- function(filename) {
 #' make_filename(2015)
 #' make_filename('2015')
 #'
+#' @export
 make_filename <- function(year) {
   year <- as.integer(year)
   sprintf("accident_%d.csv.bz2", year)
