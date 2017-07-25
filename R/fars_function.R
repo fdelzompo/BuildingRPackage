@@ -9,7 +9,7 @@
 #' If the filename doesn't exists it returs an error.
 #'
 #' @examples
-#' #' \dontrun{
+#' \dontrun{
 #' fars_read('accident_2015.csv.bz2')
 #' fars_read(make_filename(2015))
 #'}
@@ -37,7 +37,7 @@ fars_read <- function(filename) {
 #' It will return an error if input is incorrect (ie '2015c')
 #'
 #' @examples
-#' #' \dontrun{
+#' \dontrun{
 #' make_filename(2015)
 #' make_filename('2015')
 #'}
@@ -114,52 +114,3 @@ fars_summarize_years <- function(years) {
     dplyr::summarize(n = n()) %>%
     tidyr::spread(year, n)
 }
-
-#' fars_map_state
-#' A funtion that maps the location of the accident during a specific year in one or more states.
-#' Returns error if state number is not present or year is incorrect.
-#' If there are no accidents (hopefully) it returns a message 'No accident to plot'
-#'
-#' @param state.num A character or numeric containing the number state to  map (coerced to integer in the function).
-#' @param year A character or numeric element containing the year to summirise.
-#'
-#' @return returns map with the accident as points.
-#'
-#' @examples
-#' \dontrun{
-#' fars_map_state(1,2014)
-#' fars_map_state('20','2014')
-#'}
-#'
-#' @importFrom dplyr bind_rows
-#' @importFrom dplyr group_by
-#' @importFrom graphics points
-#' @importFrom dplyr filter
-#' @importFrom dplyr filter %>%
-#' @importFrom maps map
-#' @importFrom GlobalEnv make_filename
-#' @importFrom GlobalEnv fars_read
-#'
-#' @export
-fars_map_state <- function(state.num, year) {
-  filename <- make_filename(year)
-  data <- fars_read(filename)
-  state.num <- as.integer(state.num)
-
-  if(!(state.num %in% unique(data$STATE)))
-    stop("invalid STATE number: ", state.num)
-  data.sub <- dplyr::filter(data, STATE == state.num)
-  if(nrow(data.sub) == 0L) {
-    message("no accidents to plot")
-    return(invisible(NULL))
-  }
-  is.na(data.sub$LONGITUD) <- data.sub$LONGITUD > 900
-  is.na(data.sub$LATITUDE) <- data.sub$LATITUDE > 90
-  with(data.sub, {
-    maps::map("state", ylim = range(LATITUDE, na.rm = TRUE),
-              xlim = range(LONGITUD, na.rm = TRUE))
-    graphics::points(LONGITUD, LATITUDE, pch = 46)
-  })
-}
-
-
