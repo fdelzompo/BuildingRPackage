@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fdelzompo/BuildingRPackage.svg?branch=master)](https://travis-ci.org/fdelzompo/BuildingRPackage)
+
 # BuildingRPackage
 
 Final test of Coursera "Buildin R Packages"
